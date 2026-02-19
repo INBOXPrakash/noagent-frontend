@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .input {
+    @apply border border-gray-300 rounded-lg px-3 py-2 
+    focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+}
+/* ✅ ONLY dropdown fix - no layout changes */
+select.input {
+  -webkit-appearance: none;  /* Safari/Chrome */
+  -moz-appearance: none;     /* Firefox */
+  appearance: none;          /* Standard */
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23666'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem; /* only for arrow spacing */
+}
+/* === FORCE SELECT + OPTION VISIBILITY === */
+select.input {
+  background-color: #ffffff;
+  color: #1f2937; /* gray-800 */
+}
+
+select.input option {
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+/* remove native blue highlight */
+select.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.6); /* yellow focus */
+}
+
+/* Seller form base styles */
+.form-label {
+  @apply block text-sm font-medium text-gray-800 mb-1;
+}
+
+.form-input {
+  @apply w-full rounded-md border border-gray-300 bg-white
+         px-3 py-2 text-gray-900
+         placeholder-gray-400
+         focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500;
+}
+
+.form-select {
+  @apply w-full rounded-md border border-gray-300 bg-white
+         px-3 py-2 text-gray-900
+         appearance-none
+         focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500;
+}
+/* Seller form base styles */
+.form-label {
+  @apply block text-sm font-medium text-gray-800 mb-1;
+}
+
+.form-input {
+  @apply w-full rounded-md border border-gray-300 bg-white
+         px-3 py-2 text-gray-900
+         placeholder-gray-400
+         focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600;
+}
+
+.form-select {
+  @apply w-full rounded-md border border-gray-300 bg-white
+         px-3 py-2 text-gray-900
+         appearance-none
+         focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600;
+}
+
+.btn-primary {
+  @apply bg-orange-600 text-white px-6 py-2 rounded
+         hover:bg-orange-700 transition;
+}
+
+.btn-secondary {
+  @apply border border-orange-600 text-orange-600 px-6 py-2 rounded;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+
