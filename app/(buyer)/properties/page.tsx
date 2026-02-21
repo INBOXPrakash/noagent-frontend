@@ -1,9 +1,10 @@
 'use client'
 
-import Header from '../components/Header'
-import SearchBar from '../components/SearchBar'
-import BuyFilters from '../components/BuyFilters'
-import PropertyCard from '../components/PropertyCard'
+import Header from '@/app/components/Header'
+import SearchBar from '@/app/components/SearchBar'
+import BuyFilters from '@/app/components/BuyFilters'
+import PropertyCard from '@/app/components/PropertyCard'
+
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { fetchProperties } from '@/lib/fetchProperties'
