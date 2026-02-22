@@ -4,9 +4,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BRAND_NAME, BRAND_MARK } from '@/config/site'
 
-export default function Header() {
+type HeaderProps = {
+  variant?: 'default' | 'transparent' | 'seller'
+}
+
+export default function Header({ variant = 'default' }: HeaderProps) {
+  const baseClasses =
+    variant === 'transparent'
+      ? 'absolute top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-lg'
+      : 'relative w-full bg-white shadow'
+
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-lg">
+    <header className={baseClasses}>
       <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
 
         {/* Logo */}
@@ -29,7 +38,7 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* RIGHT SIDE — ALWAYS SAME */}
+        {/* RIGHT SIDE */}
         <div className="hidden md:flex items-center gap-4 text-white text-sm">
           <button className="flex items-center gap-1 border border-white/40 px-3 py-1.5 rounded">
             💳 Pay Rent
