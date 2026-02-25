@@ -1,4 +1,4 @@
-import { ListingState } from '../types'
+import { ListingState } from './types'
 
 export function buildListingPayload(state: ListingState) {
   return {
