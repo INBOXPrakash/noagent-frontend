@@ -7,7 +7,7 @@ export default function BuyerLayout({
 }) {
   return (
     <>
-      <Header variant="default" />
+      <Header  />
       {children}
     </>
   )
